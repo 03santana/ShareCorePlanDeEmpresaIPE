@@ -1,0 +1,5 @@
+Notas rápidas del prototipo ShareCore:
+- Prototipo estático creado el 02/12/2025.
+- Encuestas: guardan en localStorage bajo keys `survey_teachers` y `survey_general`.
+- Simulación de "alquiler" con alert().
+- Considerar integrar WebRTC o servicios cloud para acceso remoto real.

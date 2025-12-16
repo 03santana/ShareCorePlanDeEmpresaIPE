@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ShareCore — Prototipo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="topnav">
+    <div class="container nav-inner">
+      <div class="nav-brand">ShareCore</div>
+      <ul class="nav-links">
+        <li><a href="#" id="nav-home" class="nav-link active">Inicio</a></li>
+        <li><a href="#" id="nav-host" class="nav-link">Alquilar tu PC</a></li>
+      </ul>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="container">
+      <div class="logo-wrap" aria-hidden="true">
+        <!-- Improved inline SVG logo: network of nodes only (no text) -->
+        <svg class="logo" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <!-- subtle glow background circle cluster -->
+          <g opacity="0.08" fill="#0b1220">
+            <circle cx="60" cy="36" r="28" />
+            <circle cx="120" cy="40" r="22" />
+            <circle cx="160" cy="24" r="18" />
+          </g>
+          <!-- connecting lines -->
+          <g stroke="#06292b" stroke-width="1.6" fill="none" stroke-linecap="round">
+            <line x1="48" y1="18" x2="74" y2="12" />
+            <line x1="74" y1="12" x2="102" y2="28" />
+            <line x1="102" y1="28" x2="138" y2="18" />
+            <line x1="52" y1="40" x2="86" y2="36" />
+            <line x1="86" y1="36" x2="118" y2="46" />
+            <line x1="118" y1="46" x2="158" y2="36" />
+            <line x1="62" y1="20" x2="62" y2="58" />
+            <line x1="102" y1="8" x2="102" y2="56" />
+            <line x1="142" y1="20" x2="142" y2="56" />
+            <line x1="80" y1="8" x2="120" y2="8" />
+            <line x1="40" y1="50" x2="100" y2="70" />
+          </g>
+          <!-- nodes with different sizes to create depth -->
+          <g fill="#06292b">
+            <circle cx="48" cy="18" r="4.5" />
+            <circle cx="74" cy="12" r="6" />
+            <circle cx="102" cy="28" r="7" />
+            <circle cx="138" cy="18" r="5" />
+            <circle cx="52" cy="40" r="4" />
+            <circle cx="86" cy="36" r="5" />
+            <circle cx="118" cy="46" r="6" />
+            <circle cx="158" cy="36" r="4" />
+            <circle cx="62" cy="56" r="5" />
+            <circle cx="102" cy="56" r="3.5" />
+            <circle cx="142" cy="52" r="5" />
+            <!-- extra small nodes to mimic original cluster -->
+            <circle cx="180" cy="16" r="2.8" />
+            <circle cx="190" cy="36" r="2.4" />
+            <circle cx="30" cy="44" r="2.6" />
+            <circle cx="22" cy="22" r="2.2" />
+          </g>
+        </svg>
+      </div>
+      <h1>ShareCore</h1>
+      <p class="tag">Comparte recursos. Accede a potencia. Reduce impacto ♻️</p>
+      <p class="lead">Alquila una partición de disco o un ordenador completo por horas — ideal para jugar, procesar o tareas de alto rendimiento.</p>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Buscar ofertas (ej. Gamer, Storage, Miner)" aria-label="Buscar ofertas">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="offers" class="card offers-area" data-view="home">
+      <div class="offers-header">
+        <h2>Ofertas disponibles</h2>
+        <p class="muted">Explora equipos y particiones disponibles para alquilar (simulación).</p>
+      </div>
+      <div id="device-list" class="grid">
+        <!-- Tarjetas generadas desde app.js -->
+      </div>
+    </section>
+    </main>
+
+    <!-- Host view: full screen separate view -->
+    <section id="host-view" class="host-view" data-view="host" aria-hidden="true">
+      <div class="host-inner card">
+        <div class="host-grid">
+          <div class="host-form-column">
+            <h2>Alquila tu PC o partición</h2>
+            <p class="muted">Ofrece tu equipo cuando no lo uses y gana dinero. Rellena los campos y tu oferta aparecerá en la lista.</p>
+            <form id="owner-form" class="owner-form">
+              <div class="form-row">
+                <label class="field">Nombre público del equipo
+                  <input name="name" required placeholder="Ej. MiPC-Gamer">
+                </label>
+                <label class="field">Tipo
+                  <select name="type" required>
+                    <option value="Ordenador completo">Ordenador completo</option>
+                    <option value="Partición de disco">Partición de disco</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-row">
+                <label class="field"><span class="label-text" id="hours-label">Horario (p. ej. 20:00-23:00)</span>
+                  <input id="hours-input" name="hours" required placeholder="00:00-23:59">
+                </label>
+                <label class="field" id="price-label"><span id="price-label-text">Precio €/hora</span>
+                  <input name="price" type="number" min="0" step="0.1" required placeholder="5">
+                </label>
+              </div>
+              <label class="field">Descripción
+                <textarea name="desc" rows="4" placeholder="Descripción corta..."></textarea>
+              </label>
+              <div class="form-actions">
+                <button type="submit" class="btn primary">Publicar oferta</button>
+                <button type="button" id="owner-reset" class="btn secondary">Limpiar</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="host-preview-column">
+            <div class="preview-card" id="preview-card" aria-hidden="true">
+              <div class="preview-top"><div class="preview-icon">🖥️</div><div class="preview-title">MiPC (ejemplo)</div><div class="preview-price">-- €/h</div></div>
+              <div class="preview-meta">Tipo · Horario</div>
+              <p class="preview-desc">Descripción corta...</p>
+              <div class="preview-cta"><button class="btn">Ver en el marketplace</button></div>
+            </div>
+            <p class="muted small">Vista previa en vivo — comprueba cómo se verá tu oferta antes de publicarla.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>ShareCore — Prototipo educativo. No funcional para producción.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
