@@ -51,7 +51,7 @@ Cómo probar (rápido):
 1. Abrir `index.html` en un navegador (doble clic) o desde PowerShell:
 
 ```powershell
-Start-Process "C:\Users\dorae\Documents\Trabajo_IPE_Empresa\sharecore-prototipo\index.html"
+Start-Process "index.html"
 ```
 
 2. Pulsar los botones "Alquilar (prototipo)" para ver la simulación.
@@ -59,3 +59,4 @@ Start-Process "C:\Users\dorae\Documents\Trabajo_IPE_Empresa\sharecore-prototipo\
 Notas finales:
 - El prototipo está pensado para presentación y pruebas locales. No está listo para producción.
 - Si quieres que añada persistencia (backend), export CSV de encuestas, o un modal de reserva por horas, dime cuál de las opciones prefieres y lo implemento.
+
