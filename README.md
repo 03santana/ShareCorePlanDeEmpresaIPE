@@ -9,11 +9,11 @@ Contenido:
 
 Cómo ejecutar (Windows):
 1. Abrir el explorador de archivos y navegar a la carpeta del proyecto:
-   `C:\Users\dorae\Documents\Trabajo_IPE_Empresa\sharecore-prototipo`
+   `sharecore-prototipo`
 2. Abrir `index.html` en un navegador (doble clic), o desde PowerShell ejecutar:
 
 ```powershell
-Start-Process "C:\Users\dorae\Documents\Trabajo_IPE_Empresa\sharecore-prototipo\index.html"
+Start-Process "index.html"
 ```
 
 Pruebas rápidas:
@@ -59,4 +59,5 @@ Start-Process "index.html"
 Notas finales:
 - El prototipo está pensado para presentación y pruebas locales. No está listo para producción.
 - Si quieres que añada persistencia (backend), export CSV de encuestas, o un modal de reserva por horas, dime cuál de las opciones prefieres y lo implemento.
+
 
